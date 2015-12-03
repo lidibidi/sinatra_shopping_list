@@ -1,0 +1,53 @@
+<h1>Shopping List</h1>
+
+<% if @message %>
+<strong><%=@message %></strong>
+<% end %>
+
+<li><a href='/create'>Create Shopping List</a></li>
+<table>
+  <thead>
+    <th>
+      ID
+    </th>
+    <th>
+      Item Name
+    </th>
+    <th>
+      Size
+    </th>
+  <th>
+    Quantity
+  </th>
+  <th>
+    Update
+  </th>
+  <th>
+    Remove
+  </th>
+  </thead>
+  <tbody>
+    <%@item.each do |item| %>
+    <tr>
+      <td>
+        <%= item.id %>
+      </td>
+      <td>
+        <%= item.name%>
+      </td>
+      <td>
+        <%= item.size %>
+      </td>
+      <td>
+        <%= item.quantity %>
+      </td>
+      <td>
+        <a href="/update/<%= item.id %>">Update</a>
+      </td>
+      <td>
+        <a href="/destroy/<%= item.id %>">Destroy</a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
